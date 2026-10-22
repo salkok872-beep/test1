@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şırnak - Nuh Şehri'nin Gizli Cenneti</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Inter & Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sirnak: {
+                            50: '#f5f7f4',
+                            100: '#e5ebe3',
+                            200: '#cbd7c7',
+                            300: '#a3b99e',
+                            400: '#75956d',
+                            500: '#54764d',
+                            600: '#425e3c',
+                            700: '#364c31',
+                            800: '#2d3e29',
+                            900: '#263424',
+                            950: '#141c13',
+                        },
+                        earth: {
+                            sand: '#d9ab73',
+                            clay: '#b0653d',
+                            dark: '#38220f'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background: linear-gradient(to bottom, rgba(20, 28, 19, 0.65), rgba(45, 62, 41, 0.8)), url('https://images.unsplash.com/photo-1542224566-6e85f2e6772f?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-sirnak-50 text-sirnak-900 font-sans antialiased selection:bg-sirnak-500 selection:text-white">
+
+    <!-- Header & Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-sirnak-950/80 backdrop-blur-md border-b border-sirnak-800 text-white transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-sirnak-500 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-sirnak-900/50 group-hover:bg-sirnak-400 transition">
+                    Ş
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-wide">ŞIRNAK</span>
+                    <span class="block text-xs text-sirnak-300 tracking-widest uppercase">Nuh'un Şehri</span>
+                </div>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#tarihce" class="hover:text-sirnak-300 transition">Tarihçe</a>
+                <a href="#gezilecek-yerler" class="hover:text-sirnak-300 transition">Gezilecek Yerler</a>
+                <a href="#yasam-kultur" class="hover:text-sirnak-300 transition">Yaşam & Kültür</a>
+                <a href="#mutfak" class="hover:text-sirnak-300 transition">Yöresel Lezzetler</a>
+                <a href="#galeri" class="hover:text-sirnak-300 transition">Galeri</a>
+            </nav>
+
+            <div class="hidden md:flex items-center space-x-4">
+                <button onclick="openContactModal()" class="px-5 py-2.5 rounded-xl bg-sirnak-500 hover:bg-sirnak-400 text-white font-semibold text-sm shadow-md transition transform active:scale-95">
+                    İletişim / Rehber Ol
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-white focus:outline-none p-2 rounded-lg bg-sirnak-900">
+                <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-sirnak-950 border-b border-sirnak-800 px-6 py-4 space-y-3">
+            <a href="#tarihce" onclick="toggleMobileMenu()" class="block py-2 text-sirnak-200 hover:text-white">Tarihçe</a>
+            <a href="#gezilecek-yerler" onclick="toggleMobileMenu()" class="block py-2 text-sirnak-200 hover:text-white">Gezilecek Yerler</a>
+            <a href="#yasam-kultur" onclick="toggleMobileMenu()" class="block py-2 text-sirnak-200 hover:text-white">Yaşam & Kültür</a>
+            <a href="#mutfak" onclick="toggleMobileMenu()" class="block py-2 text-sirnak-200 hover:text-white">Yöresel Lezzetler</a>
+            <a href="#galeri" onclick="toggleMobileMenu()" class="block py-2 text-sirnak-200 hover:text-white">Galeri</a>
+            <button onclick="openContactModal(); toggleMobileMenu();" class="w-full mt-2 py-2.5 rounded-xl bg-sirnak-500 text-white font-semibold text-center">İletişim</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center text-white relative pt-20">
+        <div class="absolute inset-0 bg-gradient-to-t from-sirnak-950 via-transparent to-black/40"></div>
+        <div class="max-w-5xl mx-auto px-4 text-center relative z-10 py-24">
+            <span class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-sirnak-800/80 text-sirnak-200 border border-sirnak-700/50 text-xs sm:text-sm font-medium mb-6 backdrop-blur-sm animate-bounce">
+                <i class="fa-solid fa-mountain text-sirnak-400"></i>
+                <span>Mezopotamya'nın Saklı Hazinesi</span>
+            </span>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                Medeniyetlerin Beşiği <span class="text-sirnak-400">Şırnak</span>
+            </h1>
+            <p class="text-base sm:text-xl text-sirnak-100 max-w-3xl mx-auto mb-10 font-light leading-relaxed">
+                Cudi Dağı'nın eteklerinde, binlerce yıllık tarihi, Nuh Tufanı efsaneleri, zengin kültürel mirası ve eşsiz doğal güzellikleriyle keşfedilmeyi bekleyen bir coğrafya.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#gezilecek-yerler" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-sirnak-500 hover:bg-sirnak-400 text-white font-bold text-base shadow-xl shadow-sirnak-900/40 transition transform hover:-translate-y-0.5">
+                    <i class="fa-solid fa-compass mr-2"></i> Keşfe Başla
+                </a>
+                <a href="#tarihce" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-base backdrop-blur-md transition">
+                    <i class="fa-solid fa-book-open mr-2"></i> Tarihini Oku
+                </a>
+            </div>
+        </div>
+
+        <!-- Quick Info Floating Bar -->
+        <div class="absolute bottom-0 left-0 right-0 hidden lg:block bg-sirnak-950/90 border-t border-sirnak-800/80 backdrop-blur-md py-6">
+            <div class="max-w-7xl mx-auto px-8 grid grid-cols-4 gap-6 text-center">
+                <div class="border-r border-sirnak-800">
+                    <span class="block text-2xl font-bold text-sirnak-300">Nuh'un Şehri</span>
+                    <span class="text-xs text-sirnak-400 uppercase tracking-wider">Şar-ı Nuh İsmi</span>
+                </div>
+                <div class="border-r border-sirnak-800">
+                    <span class="block text-2xl font-bold text-sirnak-300">Cudi & Gabar</span>
+                    <span class="text-xs text-sirnak-400 uppercase tracking-wider">Görkemli Dağlar</span>
+                </div>
+                <div class="border-r border-sirnak-800">
+                    <span class="block text-2xl font-bold text-sirnak-300">Köklü Miras</span>
+                    <span class="text-xs text-sirnak-400 uppercase tracking-wider">Guti, Med, Asur, Osmanlı</span>
+                </div>
+                <div>
+                    <span class="block text-2xl font-bold text-sirnak-300">Dengbejlik</span>
+                    <span class="text-xs text-sirnak-400 uppercase tracking-wider">Kültürel Sözlü Sanat</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tarihçe Bölümü -->
+    <section id="tarihce" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-sirnak-600 font-semibold text-sm uppercase tracking-widest">Köklü Geçmiş</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 mb-4">Şar-ı Nuh'tan Günümüze Şırnak</h2>
+                <div class="w-20 h-1 bg-sirnak-500 mx-auto rounded-full"></div>
+                <p class="text-gray-600 mt-4 text-base sm:text-lg">
+                    Tarih boyunca pek çok medeniyete ev sahipliği yapmış olan Şırnak, adını Nuh Tufanı sonrasındaki efsanelerden almaktadır.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="p-6 bg-sirnak-50 rounded-2xl border border-sirnak-100 shadow-sm">
+                        <h3 class="text-xl font-bold text-sirnak-900 mb-2 flex items-center">
+                            <i class="fa-solid fa-landmark text-sirnak-600 mr-3"></i> "Şar-ı Nuh" Efsanesi
+                        </h3>
+                        <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
+                            Şırnak'ın eski adının **"Şar-ı Nuh"** (Nuh'un Şehri) olduğu rivayet edilir. Büyük Tufan sonrasında Nuh'un Gemisi'nin Cudi Dağı'na oturduğuna inanılır. Zamanla halk dilinde bu isim "Şırnak" şeklini almıştır.
+                        </p>
+                    </div>
+
+                    <div class="p-6 bg-sirnak-50 rounded-2xl border border-sirnak-100 shadow-sm">
+                        <h3 class="text-xl font-bold text-sirnak-900 mb-2 flex items-center">
+                            <i class="fa-solid fa-shield-halved text-sirnak-600 mr-3"></i> Antik Medeniyetler
+                        </h3>
+                        <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
+                            Gutiler, Medler, Urartular, Asurlular, Persler, Romalılar, Selçuklular ve Osmanlılar gibi pek çok büyük medeniyet bu topraklarda iz bırakmıştır. Her köşe başında tarihi bir kale, ören yeri veya kalıntı ile karşılaşmak mümkündür.
+                        </p>
+                    </div>
+
+                    <div class="p-6 bg-sirnak-50 rounded-2xl border border-sirnak-100 shadow-sm">
+                        <h3 class="text-xl font-bold text-sirnak-900 mb-2 flex items-center">
+                            <i class="fa-solid fa-map-location-dot text-sirnak-600 mr-3"></i> Stratejik Konum
+                        </h3>
+                        <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
+                            Dicle Nehri havzasında, Mezopotamya ile Anadolu'nun kesişim noktasında yer alan Şırnak, tarih boyunca önemli ticaret ve göç yolları üzerinde bulunmuştur.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Şırnak Tarihi" class="w-full h-auto object-cover hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/800x600/425e3c/ffffff?text=Gorsel+Bulunamadi'">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-sirnak-950 text-white p-6 rounded-2xl shadow-xl max-w-xs border border-sirnak-800 hidden sm:block">
+                        <div class="text-sirnak-400 font-bold text-3xl mb-1">Binlerce</div>
+                        <p class="text-xs text-sirnak-200">Yıllık geçmişe sahip antik kalıntılar ve mağaralar şehri.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gezilecek Yerler Bölümü -->
+    <section id="gezilecek-yerler" class="py-24 bg-sirnak-100/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-sirnak-600 font-semibold text-sm uppercase tracking-widest">Keşfet</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 mb-4">Şırnak'ın Görülmeye Değer Yerleri</h2>
+                <div class="w-20 h-1 bg-sirnak-500 mx-auto rounded-full"></div>
+                <p class="text-gray-600 mt-4 text-base sm:text-lg">
+                    Tarihi kalıntılardan görkemli dağlara, efsanevi mekanlardan doğal cennetlere kadar Şırnak'ta rota oluşturun.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-sirnak-200 flex flex-col hover:shadow-2xl transition group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="Cudi Dağı" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-sirnak-950/80 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full">Efsanevi Nokta</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-sirnak-900 mb-2">Cudi Dağı ve Nuh'un Gemisi</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                Kutsal kitaplarda adı geçen, Nuh'un Gemisi'nin tufan sonrasında demir attığına inanılan zirve ve çevresindeki muazzam doğa manzaraları.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Cudi Dağı ve Nuh\'un Gemisi', 'Cudi Dağı, 2114 metre yüksekliğiyle Şırnak\'ın simge dağlarından biridir. Üç ilahi dinin ortak kutsal metinlerinde yer alan Nuh\'un Gemisi kalıntısının bu dağda bulunduğu inancı, buraya hem dini hem de tarihi bir önem kazandırmaktadır. Dağın zirvesi ve etekleri doğaseverler ve araştırmacılar için büyüleyici bir atmosfere sahiptir.')" class="w-full py-2.5 rounded-xl bg-sirnak-50 hover:bg-sirnak-500 hover:text-white text-sirnak-700 font-semibold text-sm transition border border-sirnak-200">
+                            Detayları İncele
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-sirnak-200 flex flex-col hover:shadow-2xl transition group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Kasrik Boğazı" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-sirnak-950/80 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full">Tarihi Boğaz</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-sirnak-900 mb-2">Kasrik Boğazı ve Kalıntıları</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                Dicle Nehri'nin dağları yardığı muhteşem boğaz; kayaya oyulmuş kaleler, antik su kanalları ve kabartmalarıyla açık hava müzesi gibidir.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Kasrik Boğazı', 'Dicle nehrinin sarp dağlar arasında açtığı bu doğal geçit, tarih boyunca pek çok medeniyetin kontrol noktası olmuştur. Kasrik Kalesi, kaya mezarları ve antik kabartmalar bölgenin zengin arkeolojik potansiyelini gözler önüne serer.')" class="w-full py-2.5 rounded-xl bg-sirnak-50 hover:bg-sirnak-500 hover:text-white text-sirnak-700 font-semibold text-sm transition border border-sirnak-200">
+                            Detayları İncele
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-sirnak-200 flex flex-col hover:shadow-2xl transition group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80" alt="Mem û Zin Türbesi" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-sirnak-950/80 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full">Kültürel Miras</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-sirnak-900 mb-2">Mem û Zin Türbesi</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                Cizre ilçesinde yer alan, Şark'ın dillerden düşmeyen efsanevi aşk hikayesinin kahramanları Mem ve Zin'in türbelerinin bulunduğu kutsal ziyaretgah.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Mem û Zin Türbesi', 'Cizre ilçesinde bulunan bu türbe, Ahmedê Xanî\'nin eserinde ölümsüzleştirdiği Mem ile Zin\'in hüzünlü aşk hikayesinin izlerini taşır. Her yıl binlerce ziyaretçi tarafından ziyaret edilen bu mekan, bölgenin en önemli kültürel simgelerinden biridir.')" class="w-full py-2.5 rounded-xl bg-sirnak-50 hover:bg-sirnak-500 hover:text-white text-sirnak-700 font-semibold text-sm transition border border-sirnak-200">
+                            Detayları İncele
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-sirnak-200 flex flex-col hover:shadow-2xl transition group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=600&q=80" alt="Finik Ören Yeri" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-sirnak-950/80 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full">Antik Yerleşim</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-sirnak-900 mb-2">Finik Ören Yeri ve Kalesi</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                Dicle Nehri kenarında sarp kayalıklara oyulmuş evler, sarnıçlar ve kaleden oluşan antik yerleşim yeri tarihi meraklıları için mükemmeldir.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Finik Ören Yeri ve Kalesi', 'Cizre ilçesine bağlı Güçlükonak yolu üzerinde bulunan Finik, kayalıklara oyulmuş çok katlı mağaraları, sarnıçları ve kale kalıntılarıyla dikkat çeker. Guti ve Asur dönemlerine uzanan kökleriyle eşsiz bir arkeolojik alandır.')" class="w-full py-2.5 rounded-xl bg-sirnak-50 hover:bg-sirnak-500 hover:text-white text-sirnak-700 font-semibold text-sm transition border border-sirnak-200">
+                            Detayları İncele
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-sirnak-200 flex flex-col hover:shadow-2xl transition group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80" alt="Gabar Dağı" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-sirnak-950/80 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full">Doğal Güzellik</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-sirnak-900 mb-2">Gabar Dağı ve Uludere</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                Eşsiz dağ manzaraları, zengin bitki örtüsü ve derin vadileriyle doğa yürüyüşleri ve keşifler için muazzam bir coğrafya sunar.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Gabar Dağı ve Uludere', 'Gabar Dağı ve Uludere bölgesi, el değmemiş doğal ekosistemi, derin vadileri ve zengin yaylaları ile doğa tutkunlarının ilgisini çeker. Son yıllarda adını duyuran bölge, doğal güzellikleriyle de öne çıkmaktadır.')" class="w-full py-2.5 rounded-xl bg-sirnak-50 hover:bg-sirnak-500 hover:text-white text-sirnak-700 font-semibold text-sm transition border border-sirnak-200">
+                            Detayları İncele
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-sirnak-200 flex flex-col hover:shadow-2xl transition group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80" alt="İdil Azakh" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-sirnak-950/80 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full">Tarihi İlçe</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-sirnak-900 mb-2">İdil (Azakh) Tarihi Yapıları</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                Kadim kiliseleri, taş evleri ve samimi kültürüyle bilinen İdil (Azakh), çok kültürlü yapısını günümüze taşıyan önemli bir yerleşimdir.
+                            </p>
+                        </div>
+                        <button onclick="openModal('İdil (Azakh)', 'Tarihi adı Azakh olan İdil, antik dönemden kaleme alınan kaynaklarda önemli bir yer tutar. Tarihi kiliseleri, geleneksel taş mimarisi ve barışçıl kültürel dokusuyla Şırnak\'ın mozaiğini tamamlar.')" class="w-full py-2.5 rounded-xl bg-sirnak-50 hover:bg-sirnak-500 hover:text-white text-sirnak-700 font-semibold text-sm transition border border-sirnak-200">
+                            Detayları İncele
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Halkın Gündelik Yaşamı ve Kültür -->
+    <section id="yasam-kultur" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-sirnak-600 font-semibold text-sm uppercase tracking-widest">Kültür ve Gelenek</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 mb-4">Halkın Gündelik Yaşamı ve Sanat</h2>
+                <div class="w-20 h-1 bg-sirnak-500 mx-auto rounded-full"></div>
+                <p class="text-gray-600 mt-4 text-base sm:text-lg">
+                    Şırnak'ta yaşam; doğanın ritmi, el emeği göz nuru el sanatları ve nesilden nesile aktarılan sözlü geleneklerle şekillenir.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Item 1 -->
+                <div class="bg-sirnak-50 p-8 rounded-3xl border border-sirnak-100 flex flex-col items-center text-center shadow-sm hover:shadow-md transition">
+                    <div class="w-16 h-16 rounded-2xl bg-sirnak-500 text-white flex items-center justify-center text-2xl mb-6 shadow-lg shadow-sirnak-900/20">
+                        <i class="fa-solid fa-wheat-awn"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-sirnak-900 mb-3">Tarım, Hayvancılık ve Kilim</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Zengin yaylalarda yapılan hayvancılık bölge ekonomisinde temeldir. Kadınların tezgahlarında dokuduğu el emeği kök boyalı kilimler, yerel motiflerin en güzel hikayelerini anlatır.
+                    </p>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="bg-sirnak-50 p-8 rounded-3xl border border-sirnak-100 flex flex-col items-center text-center shadow-sm hover:shadow-md transition">
+                    <div class="w-16 h-16 rounded-2xl bg-sirnak-500 text-white flex items-center justify-center text-2xl mb-6 shadow-lg shadow-sirnak-900/20">
+                        <i class="fa-solid fa-music"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-sirnak-900 mb-3">Dengbejlik Geleneği</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Enstrümansız, derin ve etkileyici seslerle kahramanlıkları, aşkları ve tarihi olayları anlatan dengbejler, Şırnak'ın yaşayan hafızası ve kültürel hazinesidir.
+                    </p>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="bg-sirnak-50 p-8 rounded-3xl border border-sirnak-100 flex flex-col items-center text-center shadow-sm hover:shadow-md transition">
+                    <div class="w-16 h-16 rounded-2xl bg-sirnak-500 text-white flex items-center justify-center text-2xl mb-6 shadow-lg shadow-sirnak-900/20">
+                        <i class="fa-solid fa-people-group"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-sirnak-900 mb-3">Halk Oyunları ve Düğünler</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Coşkulu halay çeşitleri (Delîlo, Govend), düğünlerde ve bayramlarda kurulan büyük halkalarla birlik, beraberlik ve neşenin en güzel sembolü olarak yaşatılır.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Yöresel Lezzetler Bölümü -->
+    <section id="mutfak" class="py-24 bg-sirnak-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-sirnak-300 font-semibold text-sm uppercase tracking-widest">Gastronomi</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 mb-4">Şırnak'ın Yöresel Lezzetleri</h2>
+                <div class="w-20 h-1 bg-sirnak-500 mx-auto rounded-full"></div>
+                <p class="text-sirnak-200 mt-4 text-base sm:text-lg">
+                    Mezopotamya topraklarının bereketiyle harmanlanmış, damaklarda iz bırakan geleneksel tarifler.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Food 1 -->
+                <div class="bg-sirnak-950 p-6 rounded-2xl border border-sirnak-800 shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="h-40 rounded-xl overflow-hidden mb-4 bg-sirnak-900">
+                            <img src="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=400&q=80" alt="Kitel Rûbar" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Kitel Rûbar</h3>
+                        <p class="text-sirnak-300 text-xs sm:text-sm leading-relaxed">
+                            Özenle hazırlanan bulgur köftelerinin nefis sos ve baharatlarla buluştuğu, bölgenin en sevilen geleneksel ana yemeklerinden biridir.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Food 2 -->
+                <div class="bg-sirnak-950 p-6 rounded-2xl border border-sirnak-800 shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="h-40 rounded-xl overflow-hidden mb-4 bg-sirnak-900">
+                            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80" alt="Hkeşîre" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Hkeşîre</h3>
+                        <p class="text-sirnak-300 text-xs sm:text-sm leading-relaxed">
+                            Özel et ve bulgur karışımıyla yapılan, zengin aromasıyla özellikle özel günlerde misafirlere ikram edilen eşsiz bir lezzettir.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Food 3 -->
+                <div class="bg-sirnak-950 p-6 rounded-2xl border border-sirnak-800 shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="h-40 rounded-xl overflow-hidden mb-4 bg-sirnak-900">
+                            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80" alt="Fıreydin" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Fıreydin</h3>
+                        <p class="text-sirnak-300 text-xs sm:text-sm leading-relaxed">
+                            Geleneksel yöntemlerle hazırlanan, kahvaltılarda ve ana öğünlerde yöre halkının vazgeçemediği özel hamur işi ve tatlı lezzetlerindendir.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Food 4 -->
+                <div class="bg-sirnak-950 p-6 rounded-2xl border border-sirnak-800 shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="h-40 rounded-xl overflow-hidden mb-4 bg-sirnak-900">
+                            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=400&q=80" alt="Serbêdev" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Serbêdev</h3>
+                        <p class="text-sirnak-300 text-xs sm:text-sm leading-relaxed">
+                            Et ve buğdayın uzun süre özenle pişirilmesiyle elde edilen, katı kıvamı ve muazzam lezzetiyle bayramların vazgeçilmez yemeğidir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri Bölümü -->
+    <section id="galeri" class="py-24 bg-sirnak-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-sirnak-600 font-semibold text-sm uppercase tracking-widest">Görsel Yolculuk</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 mb-4">Şırnak Kareleri</h2>
+                <div class="w-20 h-1 bg-sirnak-500 mx-auto rounded-full"></div>
+                <p class="text-gray-600 mt-4 text-base sm:text-lg">
+                    Şırnak'ın dağlarından, tarihi mekanlarından ve kültürel dokusundan kesitler.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="rounded-2xl overflow-hidden shadow-lg group relative h-72">
+                    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="Cudi Dağı" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-sirnak-950/80 via-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white font-semibold text-lg">Cudi Dağı ve Etkileyici Zirve</span>
+                    </div>
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-lg group relative h-72">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Dicle Nehri" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-sirnak-950/80 via-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white font-semibold text-lg">Dicle Nehri Vadisi</span>
+                    </div>
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-lg group relative h-72">
+                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80" alt="Mimari" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-sirnak-950/80 via-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <span class="text-white font-semibold text-lg">Geleneksel Mimariden Kesitler</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ziyaretçi Etkileşim / Beğeni Bölümü -->
+    <section class="py-16 bg-white border-t border-sirnak-200">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold text-sirnak-900 mb-3">Şırnak'ı Nasıl Buldunuz?</h3>
+            <p class="text-gray-600 mb-6 text-sm">Bu şehri keşfetmek için sabırsızlanıyor musunuz? Beğeninizi paylaşın veya düşüncelerinizi iletin.</p>
+            <div class="flex items-center justify-center space-x-4">
+                <button onclick="likePage()" id="likeBtn" class="flex items-center space-x-2 px-6 py-3 rounded-xl bg-sirnak-50 hover:bg-sirnak-100 text-sirnak-700 font-semibold border border-sirnak-200 transition shadow-sm">
+                    <i class="fa-solid fa-heart text-red-500"></i>
+                    <span>Beğen (<span id="likeCount">142</span>)</span>
+                </button>
+                <button onclick="openContactModal()" class="flex items-center space-x-2 px-6 py-3 rounded-xl bg-sirnak-500 hover:bg-sirnak-400 text-white font-semibold shadow-md transition">
+                    <i class="fa-solid fa-comment-dots"></i>
+                    <span>Yorum / Görüş Bildir</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Telif Hakkı / Kaynakça Alanı -->
+    <footer class="bg-sirnak-950 text-white pt-16 pb-12 border-t border-sirnak-900 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+            <!-- Col 1: Hazırlayanlar -->
+            <div>
+                <h4 class="text-sirnak-400 font-bold text-base uppercase tracking-wider mb-4 flex items-center">
+                    <i class="fa-solid fa-users mr-2"></i> Hazırlayanlar
+                </h4>
+                <p class="text-sirnak-300 text-xs sm:text-sm leading-relaxed mb-3">
+                    Bu platform, Şırnak'ın zengin tarihi, kültürel mirası ve turistik değerlerini tanıtmak amacıyla dijital kültür ekibi ve web geliştiricileri tarafından ortaklaşa hazırlanmıştır.
+                </p>
+                <p class="text-sirnak-200 text-xs font-semibold">Proje Geliştirme & İçerik Küratörlüğü: Dijital Tanıtım Grubu</p>
+            </div>
+
+            <!-- Col 2: Telif Hakkı -->
+            <div>
+                <h4 class="text-sirnak-400 font-bold text-base uppercase tracking-wider mb-4 flex items-center">
+                    <i class="fa-solid fa-copyright mr-2"></i> Telif Hakkı (Copyright)
+                </h4>
+                <p class="text-sirnak-300 text-xs sm:text-sm leading-relaxed mb-3">
+                    © 2026 Şırnak Keşif Rehberi. Tüm hakları saklıdır. Sitede yer alan metinler, tasarımlar ve kod yapıları telif hakkı yasalarınca korunmaktadır.
+                </p>
+                <p class="text-sirnak-400 text-xs">Görseller Unsplash içerik lisans kurallarına uygun olarak sergilenmektedir.</p>
+            </div>
+
+            <!-- Col 3: Kaynakça -->
+            <div>
+                <h4 class="text-sirnak-400 font-bold text-base uppercase tracking-wider mb-4 flex items-center">
+                    <i class="fa-solid fa-book-bookmark mr-2"></i> Kaynakça (References)
+                </h4>
+                <ul class="text-sirnak-300 text-xs space-y-2">
+                    <li class="flex items-start">
+                        <i class="fa-solid fa-circle-chevron-right text-sirnak-500 mr-2 mt-0.5"></i>
+                        <span>Şırnak İl Kültür ve Turizm Müdürlüğü Arşiv Kayıtları</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fa-solid fa-circle-chevron-right text-sirnak-500 mr-2 mt-0.5"></i>
+                        <span>Mezopotamya Antik Yerleşimleri ve Efsaneleri Araştırmaları</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fa-solid fa-circle-chevron-right text-sirnak-500 mr-2 mt-0.5"></i>
+                        <span>Unsplash High-Resolution Creative Commons Photography Database</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-sirnak-900/80 flex flex-col sm:flex-row items-center justify-between text-xs text-sirnak-400">
+            <p>© 2026 Şırnak Tanıtım Platformu. Mezopotamya'nın Saklı Hazinesi.</p>
+            <div class="flex space-x-6 mt-4 sm:mt-0">
+                <a href="#" class="hover:text-white transition">Gizlilik Politikası</a>
+                <a href="#" class="hover:text-white transition">Kullanım Şartları</a>
+                <a href="#tarihce" class="hover:text-white transition">Başa Dön <i class="fa-solid fa-arrow-up ml-1"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Detail Modal -->
+    <div id="detailModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative transform transition-all scale-95 opacity-0" id="modalContainer">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <h3 id="modalTitle" class="text-2xl font-bold text-sirnak-900 mb-4 pr-8">Başlık</h3>
+            <p id="modalDesc" class="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">Açıklama</p>
+            <button onclick="closeModal()" class="w-full py-3 rounded-xl bg-sirnak-500 hover:bg-sirnak-400 text-white font-semibold transition">
+                Kapat
+            </button>
+        </div>
+    </div>
+
+    <!-- Contact / Message Modal -->
+    <div id="contactModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative transform transition-all scale-95 opacity-0" id="contactModalContainer">
+            <button onclick="closeContactModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <h3 class="text-2xl font-bold text-sirnak-900 mb-2">Görüş ve Önerileriniz</h3>
+            <p class="text-gray-600 text-xs sm:text-sm mb-6">Şırnak rehberimize katkı sağlamak veya mesaj göndermek için formu doldurabilirsiniz.</p>
+            
+            <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-gray-600 mb-1">Adınız Soyadınız</label>
+                    <input type="text" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-sirnak-500 text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-gray-600 mb-1">Mesajınız</label>
+                    <textarea rows="4" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-sirnak-500 text-sm"></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 rounded-xl bg-sirnak-500 hover:bg-sirnak-400 text-white font-semibold transition shadow-md">
+                    Gönder
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden transform translate-y-10 opacity-0 transition-all duration-300 bg-sirnak-950 text-white px-6 py-3 rounded-xl shadow-2xl border border-sirnak-800 text-sm flex items-center space-x-3">
+        <i class="fa-solid fa-circle-check text-sirnak-400 text-lg"></i>
+        <span id="toastText">İşlem başarılı!</span>
+    </div>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Details Modal Functions
+        function openModal(title, desc) {
+            const modal = document.getElementById('detailModal');
+            const container = document.getElementById('modalContainer');
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDesc').innerText = desc;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(() => {
+                container.classList.remove('scale-95', 'opacity-0');
+                container.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('detailModal');
+            const container = document.getElementById('modalContainer');
+            container.classList.remove('scale-100', 'opacity-100');
+            container.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }, 200);
+        }
+
+        // Contact Modal Functions
+        function openContactModal() {
+            const modal = document.getElementById('contactModal');
+            const container = document.getElementById('contactModalContainer');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(() => {
+                container.classList.remove('scale-95', 'opacity-0');
+                container.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeContactModal() {
+            const modal = document.getElementById('contactModal');
+            const container = document.getElementById('contactModalContainer');
+            container.classList.remove('scale-100', 'opacity-100');
+            container.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }, 200);
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            closeContactModal();
+            showToast('Mesajınız başarıyla iletildi. Teşekkür ederiz!');
+        }
+
+        // Like Page Interaction
+        let liked = false;
+        function likePage() {
+            const countSpan = document.getElementById('likeCount');
+            let count = parseInt(countSpan.innerText);
+            if (!liked) {
+                count++;
+                liked = true;
+                showToast('Beğeniniz için teşekkürler!');
+            } else {
+                count--;
+                liked = false;
+                showToast('Beğeni kaldırıldı.');
+            }
+            countSpan.innerText = count;
+        }
+
+        // Toast Notification Function
+        function showToast(text) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastText').innerText = text;
+            toast.classList.remove('hidden', 'translate-y-10', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-10', 'opacity-0');
+                setTimeout(() => {
+                    toast.classList.add('hidden');
+                }, 300);
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
